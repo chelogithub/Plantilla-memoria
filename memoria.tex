@@ -30,34 +30,34 @@ headsepline, % Uncomment to get a line under the header
 %	INFORMACIÓN DE LA MEMORIA
 %----------------------------------------------------------------------------------------
 
-\thesistitle{Título del trabajo} % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
+\thesistitle{Sistema de monitoreo de servicios de planta} % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
-\posgrado{Carrera de Especialización en Sistemas Embebidos} 
-%\posgrado{Carrera de Especialización en Internet de las Cosas} 
+%\posgrado{Carrera de Especialización en Sistemas Embebidos} 
+\posgrado{Carrera de Especialización en Internet de las Cosas} 
 %\posgrado{Carrera de Especialización en Intelegencia Artificial}
 %\posgrado{Maestría en Sistemas Embebidos} 
 %\posgrado{Maestría en Internet de las cosas}
 
-\author{Nombre del autor} % Tu nombre, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \authorname
+\author{Ing. Marcelo Roberto García} % Tu nombre, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \authorname
 
-\director{Nombre del director (pertenencia)} % El nombre del director, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \dirname
-\codirector{Nombre del codirector (pertenencia)} % El nombre del codirector si lo hubiera, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \codirname.  Para activar este campo se debe descomentar la opción "codirector" en el comando \documentclass, línea 23.
+\director{Mg. Ing. Gonzalo Nahuel Vaca (INVAP)} % El nombre del director, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \dirname
+%\codirector{Nombre del codirector (pertenencia)} % El nombre del codirector si lo hubiera, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \codirname.  Para activar este campo se debe descomentar la opción "codirector" en el comando \documentclass, línea 23.
 
 \juradoUNO{Nombre del jurado 1 (pertenencia)} % Nombre y pertenencia del un jurado se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \jur1name
 \juradoDOS{Nombre del jurado 2 (pertenencia)} % Nombre y pertenencia del un jurado se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \jur2name
 \juradoTRES{Nombre del jurado 3 (pertenencia)} % Nombre y pertenencia del un jurado se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \jur3name
 
 %\ciudad{Ciudad Autónoma de Buenos Aires}
-\ciudad{ciudad de Mendoza}
+\ciudad{ciudad de Buenos Aires}
 
-\fechaINICIO{marzo de 2020}
-\fechaFINAL{diciembre de 2020}
+\fechaINICIO{marzo de 2022}
+\fechaFINAL{julio de 2023}
 
 
 \keywords{Sistemas embebidos, FIUBA} % Keywords for your thesis, print it elsewhere with \keywordnames
 
-
+\usepackage{comment} 
 \begin{document}
 
 
@@ -76,7 +76,11 @@ headsepline, % Uncomment to get a line under the header
 %The Thesis Abstract is written here (and usually kept to just this page). The page is kept centered vertically so can expand into the blank space above the title too\ldots
 \centering
 
-El resumen debe escribirse en uno o dos párrafo.  Debe ser breve y conciso sin ningún elemento de formato en el texto como itálicas o negrita. Tampoco se deben usar siglas ni acrónimos que no resulten obvios para un lector promedio de la memoria, ni referencias bibliográficas o notas al pie de página.  No debe faltar qué es lo que se hizo/logró, qué importancia/valor tiene el proyecto/resultado, qué va a encontrar el lector en la memoria y qué contenidos de la especialización/maestría se aplicaron en el proyecto.
+  	
+La presente memoria describe el desarrollo e implementación de un sistema de recolección de datos de bajo costo enfocado en la optimización del mantenimiento de servicios de planta. El trabajo se realizó para la empresa ROEMMERS S.A.I.C.F en el marco de una propuesta de mejora  por parte del departamento de electrónica con la colaboración del departamento de servicios.
+
+En este trabajo se utilizaron los conocimientos otenidos de la carrera de especialización en IoT referidos a protocolos de comunicación, tecnologías de backend, frontend, bases de datos, sistemas operativos y redes.
+
 
 \end{abstract}
 
@@ -88,7 +92,21 @@ El resumen debe escribirse en uno o dos párrafo.  Debe ser breve y conciso sin 
 %\addchaptertocentry{\acknowledgementname} % Descomentando esta línea se puede agregar los agradecimientos al índice
 \vspace{1.5cm}
 
-Esta sección es para agradecimientos personales y es totalmente \textbf{OPCIONAL}.  
+A mi pareja, por su apoyo incondicional.
+
+A mis padres y hermano.
+
+A los profesores, profesoras, compañeros y compañeras por compartir sus conocimientos y experiencias. 
+
+Al Ing. Guillermo Horacio Vidal, Jefe de servicios de laboratorios ROEMMERS, por su confianza.
+
+A Gabriel Méndez, Jefe de mantenimiento electrónico de laboratorios ROEMMERS, por su apoyo.
+
+A todos los que participaron de forma directa e indirecta de este proyecto. 
+
+
+
+%\textbf{OPCIONAL}.  
 
 \end{acknowledgements}
 
@@ -98,16 +116,16 @@ Esta sección es para agradecimientos personales y es totalmente \textbf{OPCIONA
 
 \tableofcontents % Prints the main table of contents
 
-\listoffigures % Prints the list of figures
+%\listoffigures % Prints the list of figures
 
-\listoftables % Prints the list of tables
+%\listoftables % Prints the list of tables
 
 
 %----------------------------------------------------------------------------------------
 %	CONTENIDO DE LA MEMORIA  - DEDICATORIA
 %----------------------------------------------------------------------------------------
 
-\dedicatory{\textbf{Dedicado a... [OPCIONAL]}}  % escribir acá si se desea una dedicatoria
+%\dedicatory{\textbf{Dedicado a... Romina Soledad Araujo}}  % escribir acá si se desea una dedicatoria
 
 %----------------------------------------------------------------------------------------
 %	CONTENIDO DE LA MEMORIA  - CAPÍTULOS
@@ -120,10 +138,10 @@ Esta sección es para agradecimientos personales y es totalmente \textbf{OPCIONA
 % Incluir los capítulos como archivos separados desde la carpeta Chapters
 
 \include{Chapters/Chapter1}
-\include{Chapters/Chapter2} 
-\include{Chapters/Chapter3}
-\include{Chapters/Chapter4} 
-\include{Chapters/Chapter5} 
+%\include{Chapters/Chapter2} 
+%\include{Chapters/Chapter3}
+%\include{Chapters/Chapter4} 
+%\include{Chapters/Chapter5} 
 
 %----------------------------------------------------------------------------------------
 %	CONTENIDO DE LA MEMORIA  - APÉNDICES
