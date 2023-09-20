@@ -28,14 +28,16 @@ Las plantas industriales son las instalaciones por medio del cual es posible la 
 
 Este trabajo se encuentra enfocado en una planta farmacéutica donde se producen medicamentos en diversas presentaciones como: sólidos, polvos, efervescentes, líquidos e inyectables.
 
-A continuación se detalla la configuración de una línea de producción de sólidos, esta se encuentra compuesta por una serie de máquinas automáticas donde se recibe el medicamento en polvo para ser comprimido, luego blisteado, estuchado, pesado, etiquetado, apilado y finalmente paletizado.
+A continuación por medio de la figura \ref{fig:LINEA} se detalla la configuración de una línea de producción de sólidos, esta se encuentra compuesta por una serie de máquinas automáticas donde se recibe el medicamento en polvo para ser comprimido, luego blisteado, estuchado, pesado, etiquetado, apilado y finalmente paletizado.
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=1\textwidth]{./Figures/IMA.png}
-	\caption{Linea de blisteado y estuchado.}
-	\label{fig:texmaker}
+	\caption{Linea de blisteado y estuchado.}%\protect\footnotemark.}
+	\label{fig:LINEA}
 \end{figure}
+
+%\footnotetext{Imagen tomada de \url{https://ima.it/pharma/wp-content/uploads/sites/2/2022/10/LINEA-BLISTER-con-PROCESSO_ICON_BS-scaled-e1666881021854-2048x726.jpg}}
 
 Las máquinas automáticas cuentan con sistemas de control neumáticos, hidráulicos, térmicos, eléctricos y electrónicos. Estos sistemas requieren servicios esenciales para su funcionamiento como:
  
@@ -87,26 +89,28 @@ El departamento de mantenimiento de servicios es el encargado de mantener los se
 	\item Mantenimiento de edificio, luminarias, etcétera.
 \end{itemize}
 
-La producción de medicamentos en la Argentina es regulada por la A.N.M.A.T y requiere el cumplimiento de las buenas prácticas de manufactura GMP(\emph{Goog Manufacturing Practices}). Por este motivo todos los servicios que impactan de manera directa sobre el producto son monitoreados por sistemas de control y adquisición de datos denominados SCADA.
+La producción de medicamentos en la Argentina es auditada por la A.N.M.A.T \citep{ANMAT} y requiere el cumplimiento de las buenas prácticas de manufactura GMP(\emph{Good Manufacturing Practices}). Por este motivo todos los servicios que impactan de manera directa sobre el producto son monitoreados por sistemas de control y adquisición de datos denominados SCADA.
 
 Actualmente la planta cuenta con dos sistemas SCADA, uno para el control de HVAC (\emph{Heating, Ventilating, Air Conditioned}) y otro para el control de las plantas de tratamiento de agua purificada. Estos sistemas registran variables críticas de planta, variaciones de parámetros de estos servicios generan desvíos en la producción y observaciones en los lotes producidos.
+
+La figura \ref{fig:PWNB} muestra las instalaciones de una planta purificadora de agua de ósmosis inversa con todos sus servicios.
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=1\textwidth]{./Figures/PWNB.png}
 	\caption{Planta purificadora de agua de ósmosis inversa.}
-	\label{fig:texmaker}
+	\label{fig:PWNB}
 \end{figure}
 
 Una planta purificadora de agua se alimenta de los servicios de: agua potable para luego ser purificada, electricidad para el funcionamiento del sistema de control, aire comprimido para el accionamiento de válvulas y vapor para el control de temperatura del agua.
 
-Los servicios mencionados se encuentran distribuidos a lo largo y a lo ancho de la planta, la revisión del estado de los mismos se realiza en forma local.
+Los servicios mencionados se encuentran distribuidos a lo largo y a lo ancho de la planta como se puede apreciar en la figura \ref{fig:LG}, la revisión del estado de los mismos se realiza en forma local, esto implica el control períodico por parte de un técnico de mantenimiento.
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.7\textwidth]{./Figures/ROEMMERS.png}
 	\caption{Distribución de los servicios en planta.}
-	\label{fig:texmaker}
+	\label{fig:LG}
 \end{figure}
 Referencias:
 \begin{itemize}
@@ -320,11 +324,12 @@ La motivación de este proyecto es poder brindarle al departamento de mantenimie
 %En el archivo \file{reference.bib} se encuentran las referencias bibliográficas que se pueden citar en el documento.  Para incorporar una nueva cita al documento lo primero es agregarla en este archivo con todos los campos necesario.  Todas las entradas bibliográficas comienzan con $@$ y una palabra que define el formato de la entrada.  Para cada formato existen campos obligatorios que deben completarse. No importa el orden en que las entradas estén definidas en el archivo .bib.  Tampoco es importante el orden en que estén definidos los campos de una entrada bibliográfica. A continuación se muestran algunos ejemplos:
 %
 %\begin{lstlisting}
-%@ARTICLE{ARTICLE:1,
-%    AUTHOR="John Doe",
-%    TITLE="Title",
-%    JOURNAL="Journal",
-%    YEAR="2017",
+%@misc{ANMAT:1,
+%	author = {ANMAT},
+%	title = {Normativa de medicamentos},
+%	url = {http://www.anmat.gob.ar/webanmat/normativas_medicamentos_cuerpo.asp},
+%	note = {Visitado el 2023-09-19},
+%	year = {2023}
 %}
 %\end{lstlisting}
 %
