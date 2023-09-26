@@ -19,16 +19,16 @@
 
 %\section{Introducción}
 
-En este capítulo se describen las características del mantenimiento de los servicios de planta, los sistemas de control asociados, su estado del arte, los objetivos y alcances para el desarrollo del siguiente trabajo.
+En este capítulo se describen las características del mantenimiento de los servicios de planta, los sistemas de control asociados, su estado del arte, y los objetivos y alcances para el desarrollo del siguiente trabajo.
 
 %----------------------------------------------------------------------------------------
 \section{Servicios de planta}
 
-Las plantas industriales son las instalaciones por medio del cual es posible la producción de bienes a gran escala, casi la totalidad de los elementos que se consumen, utilizan y desechan a diario provienen o han sido procesados en una planta industrial. 
+Las plantas industriales son las instalaciones por medio de las que es posible la producción de bienes a gran escala. Casi la totalidad de los elementos que se consumen, utilizan y desechan a diario provienen o han sido procesados en una planta industrial. 
 
 Este trabajo se encuentra enfocado en una planta farmacéutica donde se producen medicamentos en diversas presentaciones como: sólidos, polvos, efervescentes, líquidos e inyectables.
 
-A continuación por medio de la figura \ref{fig:LINEA} se detalla la configuración de una línea de producción de sólidos, esta se encuentra compuesta por una serie de máquinas automáticas donde se recibe el medicamento en polvo para ser comprimido, luego blisteado, estuchado, pesado, etiquetado, apilado y finalmente paletizado.
+A continuación por medio de la figura \ref{fig:LINEA} se detalla la configuración de una línea de producción de sólidos. Esta se encuentra compuesta por una serie de máquinas automáticas donde se recibe el medicamento en polvo para ser comprimido, luego blisteado, estuchado, pesado, etiquetado, apilado y finalmente paletizado.
 
 \begin{figure}[htbp]
 	\centering
@@ -39,11 +39,11 @@ A continuación por medio de la figura \ref{fig:LINEA} se detalla la configuraci
 
 \footnotetext{Imagen tomada de \url{https://ima.it/pharma/wp-content/uploads/sites/2/2022/10/LINEA-BLISTER-con-PROCESSO_ICON_BS-scaled-e1666881021854-2048x726.jpg}}
 
-Las máquinas automáticas cuentan con sistemas de control neumáticos, hidráulicos, térmicos, eléctricos y electrónicos. Estos sistemas requieren servicios esenciales para su funcionamiento como:
+Las máquinas automáticas cuentan con sistemas de control neumáticos, hidráulicos, térmicos, eléctricos y electrónicos. Estos sistemas requieren servicios esenciales para su funcionamiento, como:
  
 \begin{itemize}
 	\item Electricidad.
-	\item Vapor industrial / sanitario
+	\item Vapor industrial / sanitario.
 	\item Agua helada / purificada.
 	\item Aire comprimido.
 \end{itemize}
@@ -56,7 +56,7 @@ El departamento de mantenimiento de planta se encuentra formado por tres sectore
 
 %El departamento de mantenimiento de servicios es el encargado de mantener los servicios que permiten el funcionamiento de la planta. Estos son:
 
-Los servicios de planta son un componente fundamental para su funcionamiento, el departamento de servicios entre otras tareas se encarga de asegurar y mantener la provisión de los mismos. Algunos de estos se detallan a continuación:
+Los servicios de planta son un componente fundamental para su funcionamiento. El departamento de servicios entre otras tareas se encarga de asegurar y mantener su provisión. Algunos de estos se detallan a continuación:
 
 \begin{itemize}
 	\item Potencia eléctrica.
@@ -71,7 +71,7 @@ Los servicios de planta son un componente fundamental para su funcionamiento, el
 La producción de medicamentos en la Argentina es auditada por la A.N.M.A.T \citep{ANMAT} y requiere el cumplimiento de las buenas prácticas de manufactura GMP(\emph{Good Manufacturing Practices}). Por este motivo todos los servicios que impactan de manera directa sobre el producto son monitoreados por sistemas de supervisión, control y adquisición de datos denominados SCADA.
 
 Actualmente la planta cuenta con dos sistemas SCADA, uno para el control de HVAC (\emph{Heating, Ventilating, Air Conditioned}) y otro para el control de las plantas de tratamiento de agua purificada. 
-Estos sistemas registran variables críticas de la planta, cuando estas se encuentran fuera de especificación pueden generar desvíos en la producción y observaciones en los lotes producidos.
+Estos sistemas registran variables críticas de la planta. Cuando estas se encuentran fuera de especificación pueden generar desvíos en la producción y observaciones en los lotes producidos.
 %Estos sistemas registran variables críticas de planta, variaciones de parámetros de estos servicios generan desvíos en la producción y observaciones en los lotes producidos.
 
 La figura \ref{fig:PWNB} muestra las instalaciones de una planta purificadora de agua de ósmosis inversa con todos sus servicios.
@@ -85,12 +85,12 @@ La figura \ref{fig:PWNB} muestra las instalaciones de una planta purificadora de
 
 Una planta purificadora de agua se alimenta de los servicios de: agua potable para luego ser purificada, electricidad para el funcionamiento del sistema de control, aire comprimido para el accionamiento de válvulas y vapor para el control de temperatura del agua.
 
-Los servicios mencionados se encuentran distribuidos a lo largo y a lo ancho de la planta como se puede apreciar en la figura \ref{fig:LG}, la revisión del estado de los mismos se realiza en forma local, esto implica el control períodico por parte de un técnico de mantenimiento.
+Los servicios mencionados se encuentran distribuidos a lo largo y a lo ancho de la planta como se puede apreciar en la figura \ref{fig:LG}. La revisión de su estado se realiza en forma local, lo que implica el control períodico por parte de un técnico de mantenimiento.
 
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=0.7\textwidth]{./Figures/ROEMMERS.png}
+	\includegraphics[width=0.75\textwidth]{./Figures/ROEMMERS2.png}
 	\caption{Distribución de los servicios en planta.}
 	\label{fig:LG}
 \end{figure}
@@ -101,8 +101,8 @@ Referencias:
 	\item Celeste: Agua purificada.
 	\item Rojo: Vapor industrial.
 	\item Violeta: Vapor sanitario
-	\item Verde claro: Efluentes.
-	\item Verde oscuro: Separadores de polvo asociados a HVAC.
+	\item Verde oscuro: Efluentes.
+	\item Verde claro: Separadores de polvo asociados a HVAC.
 \end{itemize}
 
 La motivación de este proyecto es poder brindarle al departamento de mantenimiento de servicios una herramienta que le permita verificar de manera remota el estado de los servicios de planta, consultar sus valores históricos y facilitar el desarrollo de estrategias para el mantenimiento preventivo y predictivo en base a los datos obtenidos.%como una herramienta de análisis para el mantenimiento preventivo y predictivo de la planta.
@@ -118,20 +118,20 @@ Los principales objetivos y beneficios de la implementación de estos sistemas s
 	\item Control y mantenimiento de la eficiencia de los procesos.
 	\item Lectura en tiempo real de indicadores y datos de planta.
 	\item Almacenamiento de registros históricos.
-	\item Informar averías para reducir el tiempo de parada. 
+	\item Información averías para reducir el tiempo de parada. 
 	\item Gestión de reportes.
 	\item Centralización de los datos de planta.
 \end{itemize}
 
 \subsection{Orígenes}
 
-Los orígenes de estos sistemas se remontan a la década del 50, en ese entonces el control y operación de los equipamientos de una planta se efectuaba de forma manual mediante el accionamiento de pulsadores, llaves y diales.
+Los orígenes de estos sistemas se remontan a la década del 50. En ese entonces el control y operación de los equipamientos de una planta se efectuaba de forma manual mediante el accionamiento de pulsadores, llaves y diales.
 
-A medida que las plantas industriales crecían, se requería mas personal para que las operara, incluso debían recorrerse grandes distancias para llegar al punto de operación de cada instalación.
+A medida que las plantas industriales crecían, se requería más personal para que las operara e incluso debían recorrerse grandes distancias para llegar al punto de operación de cada instalación.
 
-A principios de los años 50 las primeras computadoras fueron desarrolladas con propósitos de control en el ámbito industrial, los sistemas de control se volvieron populares en las industrias que presentaban mayores utilidades como es el caso de las petroleras.
+A principios de los años 50 las primeras computadoras fueron desarrolladas con propósitos de control en el ámbito industrial y los sistemas de control se volvieron populares en las industrias que presentaban mayores utilidades como es el caso de las petroleras.
 
-En las decadas del 60 y 70 se incorpora la telemetría para el monitoreo, esto permitió la transmisión de mediciones provenientes de sitios remotos a un equipo central (\textit{Mainframe}). Estas estructuras recibieron el nombre de estructuras monolíticas, su estructura se detalla en la figura \ref{fig:SCMON}.
+En las décadas del 60 y 70 se incorpora la telemetría para el monitoreo. Esto permitió la transmisión de mediciones provenientes de sitios remotos a un equipo central (\textit{Mainframe}). Estas estructuras recibieron el nombre de estructuras monolíticas, cuya estructura se detalla en la figura \ref{fig:SCMON}.
 
 \begin{figure}[htbp]
 	\centering
@@ -140,7 +140,7 @@ En las decadas del 60 y 70 se incorpora la telemetría para el monitoreo, esto p
 	\label{fig:SCMON}
 \end{figure}
 
-En las décadas del 80 y 90 los sistemas evolucionaron con el advenimiento de la tecnología LAN (\textit{Local Area Networking}) y el desarrollo de computadoras mas pequeñas. Cada sistema contaba con protocolos LAN de tipo propietario, por lo tanto  la comunicación entre dispositivos de otros sistemas no era posible. Estos sistemas recibieron el nombre de "sistemas distribuidos". La figura \ref{fig:SCDIS} representa un sistema SCADA distribuido.
+En las décadas del 80 y 90 los sistemas evolucionaron con el advenimiento de la tecnología LAN (\textit{Local Area Networking}) y el desarrollo de computadoras más pequeñas. Cada sistema contaba con protocolos LAN de tipo propietario, por lo tanto  la comunicación entre dispositivos de otros sistemas no era posible. Estos sistemas recibieron el nombre de "sistemas distribuidos". La figura \ref{fig:SCDIS} representa un sistema SCADA distribuido.
 
 \begin{figure}[htbp]
 	\centering
@@ -149,7 +149,7 @@ En las décadas del 80 y 90 los sistemas evolucionaron con el advenimiento de la
 	\label{fig:SCDIS}
 \end{figure}
 
-A mediados de los años 90 y principios del año 2000 el crecimiento industrial y la aparición de nuevos fabricantes de equipamiento llevó a los sistemas SCADA a un modelo de arquitectura abierta. La comunicación se basó sobre protocolos no propietarios, esto permitió que la funcionalidad adquirida por los SCADA pueda distribuirse en redes de área extensa WAN. La utilización del protocolo IP y nuevos estándares permitieron su desarrollo de manera mas eficiente y efectiva en el tiempo. En la figura \ref{fig:SCNET} puede observarse la implementación de una estructura en red.
+A mediados de los años 90 y principios del año 2000 el crecimiento industrial y la aparición de nuevos fabricantes de equipamiento llevó a los sistemas SCADA a un modelo de arquitectura abierta. La comunicación se basó en protocolos no propietarios, lo que permitió que la funcionalidad adquirida por los SCADA pueda distribuirse en redes de área extensa WAN. La utilización del protocolo IP y nuevos estándares permitieron su desarrollo de manera más eficiente y efectiva en el tiempo. En la figura \ref{fig:SCNET} puede observarse la implementación de una estructura en red.
 
 \begin{figure}[htbp]
 	\centering
@@ -158,9 +158,9 @@ A mediados de los años 90 y principios del año 2000 el crecimiento industrial 
 	\label{fig:SCNET}
 \end{figure}
 
-A medida que los sistemas SCADA incorporaron protocolos de comunicación abiertos, la interoperabilidad y compatibilidad entre sistemas y hardware ha mejorado, al punto de que un SCADA WinCC diseñado por Siemens, puede encontrarse vinculado a controladores de otros fabricantes como Allen Bradley, Omron y otros.
+A medida que los sistemas SCADA incorporaron protocolos de comunicación abiertos, la interoperabilidad y compatibilidad entre sistemas y hardware mejoró, al punto de que un SCADA WinCC diseñado por Siemens puede encontrarse vinculado a controladores de otros fabricantes como Allen Bradley, Omron y otros.
 
-Si bien esta integración es perfectamente realizable, cabe aclarar que desde el punto de vista de la practicidad y velocidad de implementación, la misma será mas eficiente utilizando componentes de hardware y software del mismo fabricante, esta última también presenta ventajas económicas debido a que los programas necesarios para el diseño y puesta en marcha requieren licencias pagas.
+Si bien esta integración es perfectamente realizable, cabe aclarar que desde el punto de vista de la practicidad y velocidad de implementación, esta será mas eficiente utilizando componentes de hardware y software del mismo fabricante, además presenta ventajas económicas debido a que los programas necesarios para el diseño y puesta en marcha requieren licencias pagas.
 
 Este tipo de estructura puede visualizarse en la figura \ref{fig:SCNOW}.
 
@@ -172,7 +172,7 @@ Este tipo de estructura puede visualizarse en la figura \ref{fig:SCNOW}.
 \end{figure}
 \footnotetext{Imagen tomada de \url{https://inductiveautomation.com/blog/sites/default/files/inline-images/BasicSCADADiagram}}
  
-Las empresas líderes en sistemas SCADA utilizan en la actualidad el concepto de SaaS (\textit{Software as a Service}), la idea de este concepto es proveer un servicio de software en la nube, el usuario puede contratar servicios adicionales en tanto los requiera por medio de una suscripción. Entre las ventajas de estos sistemas podemos destacar las siguientes:
+Las empresas líderes en sistemas SCADA utilizan en la actualidad el concepto de SaaS (\textit{Software as a Service}). La idea de este concepto es proveer un servicio de software en la nube donde el usuario pueda contratar servicios adicionales en tanto los requiera por medio de una suscripción. Entre las ventajas de estos sistemas se pueden destacar las siguientes:
 
 \begin{itemize}
 	\item Gestión y mantenimiento en la nube.
@@ -198,7 +198,7 @@ En la figura \ref{fig:SCPROY} se detalla la composición del sistema propuesto.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=1.05\textwidth]{./Figures/RED.png}
-	\caption{Estructura de SCADA propuesto.}
+	\caption{Estructura de sistema propuesto.}
 	\label{fig:SCPROY}
 \end{figure}
 
@@ -242,10 +242,10 @@ Los principales objetivos de este trabajo son:\\
 	\item Reducir la frecuencia de chequeo \textit{in situ} de las instalaciones.
 	\item Aportar nuevos datos al departamento de mantenimiento de servicios para poder desarrollar estrategias de mantenimiento preventivo y predictivo en base a su análisis.
 	\item Permitir la adaptación del sistema de monitoreo de acuerdo a las necesidades requeridas del sector.
-	\item Implementar un sistema que sea la base para la creación de nuevas funcionabilidades que facilite la gestion y obtención de los datos de planta. \\ 
+	\item Implementar un sistema que sea la base para la creación de nuevas funcionabilidades que facilite la gestión y obtención de los datos de planta. \\ 
 \end{itemize}
 
-De acuerdo a los objetivos planteados, se definen los alcances que permitirán lograr los objetivos propuestos, éstos se detallan a continuación:\\ 
+De acuerdo a los objetivos planteados, se definen los alcances que permitirán lograr los objetivos propuestos, que se detallan a continuación:\\ 
 
 \begin{itemize}
  
@@ -260,7 +260,7 @@ No se encuentran contemplados dentro del alcance de este trabajo los siguientes 
 
 \begin{itemize}
 	\item Vinculación del sistema a servicios en la nube.
-	\item Desarrollo de aplicación para dispositivos móviles
+	\item Desarrollo de aplicación para dispositivos móviles.
 \end{itemize}
 
 
