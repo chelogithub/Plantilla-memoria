@@ -5,10 +5,89 @@
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
-Todos los capítulos deben comenzar con un breve párrafo introductorio que indique cuál es el contenido que se encontrará al leerlo.  La redacción sobre el contenido de la memoria debe hacerse en presente y todo lo referido al proyecto en pasado, siempre de modo impersonal.
-
+En el siguiente capitulo se realiza una introducción a las tecnológicas utilizadas en el desarrollo de este trabajo. Estas tecnologías se aplican a lo largo de las distintas capas del modelo de arquitectura IoT (\textit{Internet of Things})
 \section{Protocolos de comunicación}
 \label{sec:ejemplo}
+
+Los protocolos de comunicación son estándares que se utilizar para definir de que manera se vinculan uno o mas dispositivos. Existen una gran cantidad de protocolos, estos resuelven distintas problemáticas, a continuación se detallan los utilizados en el desarrollo de este trabajo.
+
+\subsection{SPI \textit{Serial Peripherical Interface}}
+
+EL protocolo de comunicación SPI es un protocolo de comunicación serie desarrollado por Motorola en la década del 80. Se utiliza para la comunicación entre circuitos integrados a nivel de circuito impreso, entre sus principales características se destaca por ser sincrónico y \textit{full duplex}.
+
+Los dispositivos SPI pueden alcanzar velocidades de reloj de hasta 50 MHz y su conexión se realiza generalmente mediante 4 hilos. En la figura \ref{fig:SPI} puede observarse una conexión entre dispositivos SPI.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.6\textwidth]{./Figures/SPI.png}
+	\caption{Conexión entre dispositivos SPI.\protect\footnotemark.}
+	\label{fig:SPI}
+\end{figure} 
+
+
+
+
+\subsection{I2C \textit{Inter Integrated Circuit}}
+
+Desarrollado por Philips a principios de los años 80, el protocolo I2C es un protocolo de comunicaciones económico y poderoso. Entre sus principales características se encuentra la posibilidad de direccionamiento único de dispositivos, comunicaciones bidireccionales y la disponibilidad de un gran universos de dispositivos compatibles. En la figura \ref{fig:I2C} se observa la conexión entre dispositivos I2C.
+
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./Figures/I2C.png}
+	\caption{Conexión entre dispositivos I2C.\protect\footnotemark.}
+	\label{fig:I2C}
+\end{figure} 
+
+
+En la actualidad se puede encontrar estos dispositivos en aplicaciones industriales, entretenimiento,médicas y militares. Los dispositivos I2C puedne alcanzar velocidades de reloj desde los 100kHz hasta los 5MHz.
+
+
+
+\subsection{UART \textit{Universal Asincronous Receiver Transmitter}}
+
+El protocolo de comunicación serie UART es uno de los más utilizados y antiguos en la comunicación entre dispositivos. Este protocolo es asincrónico, no cuenta con una señal de clock, esta característica reduce la cantidad de hilos de conexión a transmisión y recepción. Se observa conexión entre dispositivos UART en la Figura \ref{fig:UART}
+
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.6\textwidth]{./Figures/UART.png}
+	\caption{Conexión entre dispositivos UART.\protect\footnotemark.}
+	\label{fig:UART}
+\end{figure} 
+
+A diferencias de los protocolos I2C y  SPI, este no soporta direccionamiento, y su velocidad de comunicacion va desde las decenas de bytes al Mbyte.
+
+\subsection{LoRa\textit{Long Range}}
+
+LoRa es una tecnología de comunicación inalámbrica que utiliza la modulación CSS(\textit{Chip Spread Spectrum}) desarrollada por la empresa Semtech. La utilización de este tipo de modulación posee grandes ventajas en alcance, inmunidad al ruido y consumo.
+En la figura \ref{fig:LoRa} se observa la forma de onda modulada de un dispositivo LoRa. 
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.4\textwidth]{./Figures/LoRa.png}
+	\caption{Modulación CSS.\protect\footnotemark.}
+	\label{fig:LoRa}
+\end{figure} 
+
+Los dispositivos LoRa utilizan el espectro de frecuencias no licenciado, esto reduce el costo operativo de la instalación de dispositivos con esta tecnología.
+
+
+
+Ethernet
+
+ModBUS TCP
+
+HTTP
+
+Wi-Fi
+
+MQTT
+
+
+
+
+
 
 %\subsection{Uso de mayúscula inicial para los título de secciones}
 
