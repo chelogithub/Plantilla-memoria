@@ -13,9 +13,8 @@ Los protocolos de comunicación son estándares que se utilizar para definir de 
 
 \subsection{SPI \textit{Serial Peripherical Interface}}
 
-EL protocolo de comunicación SPI es un protocolo de comunicación serie desarrollado por Motorola en la década del 80. Se utiliza para la comunicación entre circuitos integrados a nivel de circuito impreso, entre sus principales características se destaca por ser sincrónico y \textit{full duplex}.
-
-Los dispositivos SPI pueden alcanzar velocidades de reloj de hasta 50 MHz y su conexión se realiza generalmente mediante 4 hilos. En la figura \ref{fig:SPI} puede observarse una conexión entre dispositivos SPI.
+EL protocolo de comunicación SPI es un protocolo de comunicación serie que se caracteriza por ser sincrónico y \textit{full duplex}.
+Su comunicación se realiza mediante 4 hilos como se observa en la figura \ref{fig:SPI} .
 
 \begin{figure}[htbp]
 	\centering
@@ -24,13 +23,14 @@ Los dispositivos SPI pueden alcanzar velocidades de reloj de hasta 50 MHz y su c
 	\label{fig:SPI}
 \end{figure} 
 
+Los dispositivos SPI pueden ser direccionables mediante las señales de CS \textit{chip select} y alcanzar velocidades de reloj de hasta 50MHz. 
 
+Esto permite la comunicación entre dispositivos que transfieren un gran cantidad de datos como displays, modulos ethernet y memorias entre otros. 
 
 
 \subsection{I2C \textit{Inter Integrated Circuit}}
 
-Desarrollado por Philips a principios de los años 80, el protocolo I2C es un protocolo de comunicaciones económico y poderoso. Entre sus principales características se encuentra la posibilidad de direccionamiento único de dispositivos, comunicaciones bidireccionales y la disponibilidad de un gran universos de dispositivos compatibles. En la figura \ref{fig:I2C} se observa la conexión entre dispositivos I2C.
-
+I2C es un protocolo de comunicación serie  bidireccional con un número reducido de hilos para su conexión. Como puede observarse en la figura \ref{fig:I2C}, solo se necesitan dos cables para conectar una serie de dispositivos.
 
 \begin{figure}[htbp]
 	\centering
@@ -39,14 +39,13 @@ Desarrollado por Philips a principios de los años 80, el protocolo I2C es un pr
 	\label{fig:I2C}
 \end{figure} 
 
+Soporta un rango de velocidades desde los 100 kHz a los 5MHz, es direccionable y cuenta con dispositivos para aplicaciones, militares, medicinales e industriales.
 
-En la actualidad se puede encontrar estos dispositivos en aplicaciones industriales, entretenimiento,médicas y militares. Los dispositivos I2C puedne alcanzar velocidades de reloj desde los 100kHz hasta los 5MHz.
-
-
+Entre los más utilizados se pueden encontrar, memorias, ADC, DAC, sensores de temperatura y humedad, giróscopos electrónicos, etc.
 
 \subsection{UART \textit{Universal Asincronous Receiver Transmitter}}
 
-El protocolo de comunicación serie UART es uno de los más utilizados y antiguos en la comunicación entre dispositivos. Este protocolo es asincrónico, no cuenta con una señal de clock, esta característica reduce la cantidad de hilos de conexión a transmisión y recepción. Se observa conexión entre dispositivos UART en la Figura \ref{fig:UART}
+El protocolo de comunicación serie UART es uno de los más antiguos y utilizados en la comunicación entre dispositivos. Este protocolo es asincrónico, por lo que no cuenta una señal de clock, esta característica reduce la cantidad de hilos de conexión como se detalla en la Figura \ref{fig:UART}
 
 
 \begin{figure}[htbp]
@@ -56,37 +55,50 @@ El protocolo de comunicación serie UART es uno de los más utilizados y antiguo
 	\label{fig:UART}
 \end{figure} 
 
-A diferencias de los protocolos I2C y  SPI, este no soporta direccionamiento, y su velocidad de comunicacion va desde las decenas de bytes al Mbyte.
+A diferencias de los protocolos I2C y  SPI, este no soporta direccionamiento, y su velocidad de comunicación es muy inferior en comparación a los anteriores. Dedido a su sencillez y bajo costo el mismo se continúa utilizando en algunos dispositivos como, módulos WiFi, módulos LoRa, interfaz de comunicación a PC e impresoras.
 
-\subsection{LoRa\textit{Long Range}}
+\subsection{LoRa \textit{Long Range}}
 
-LoRa es una tecnología de comunicación inalámbrica que utiliza la modulación CSS(\textit{Chip Spread Spectrum}) desarrollada por la empresa Semtech. La utilización de este tipo de modulación posee grandes ventajas en alcance, inmunidad al ruido y consumo.
+LoRa es una tecnología de comunicación inalámbrica que utiliza la modulación CSS(\textit{Chip Spread Spectrum}) desarrollada por la empresa Semtech. 
+La utilización de este tipo de modulación posee grandes ventajas de alcance, inmunidad al ruido y consumo.
 En la figura \ref{fig:LoRa} se observa la forma de onda modulada de un dispositivo LoRa. 
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=0.4\textwidth]{./Figures/LoRa.png}
+	\includegraphics[width=0.3\textwidth]{./Figures/LoRa.png}
 	\caption{Modulación CSS.\protect\footnotemark.}
 	\label{fig:LoRa}
 \end{figure} 
 
-Los dispositivos LoRa utilizan el espectro de frecuencias no licenciado, esto reduce el costo operativo de la instalación de dispositivos con esta tecnología.
+Los dispositivos LoRa utilizan el espectro de frecuencias no licenciado ISM ( \textit{Industrial, Scientific and Medical}) de 915 MHz para el caso de nuestro país, esto reduce el costo operativo de la instalación de dispositivos con esta tecnología.
+
+Con la incorporación del \textit{stack} LoRaWAN, esta tecnología se ha convertido en una de las mas populares en el ecosistema IoT.
 
 
+\subsection{ModBUS TCP}
 
-Ethernet
+Modbus es un protocolo de aplicación abierto Maestro/Esclavo que se puede utilizar en distintas capas físicas. 
+Modbus TCP significa que el protocolo Modbus se utiliza en la parte superior de Ethernet TCP/IP, un protocolo orientado a la conexión con el que se busca asegurar la entrega de datos.
 
-ModBUS TCP
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.7\textwidth]{./Figures/ModBUS.png}
+	\caption{Arquitectura de comunicación ModBUS TCP.\protect\footnotemark.}
+	\label{fig:ModBUS}
+\end{figure} 
 
-HTTP
+Este protocolo ha sido adoptado en la industria por una gran cantidad de fabricantes y en dispositivos controladores lógicos programables, interfase hombre máquina, sensores, actuadores, variadores de velocidad, etc.
 
-Wi-Fi
+ModBUS es un protocolo sencillo, económico y de rápida implementación. Dada su integración existente en los distintos componentes industriales, es muy utilizado cuando se requiere obtener datos de dispositivos industriales. 
 
-MQTT
+\subsection{HTTP \textit{Hypertext Transfer Protocol}}
 
+HTTP es un protocolo de la capa de aplicación para la transmisión de documentos hipermedia, como HTML \textit{HyperText Markup Language} del tipo cliente - servidor. 
+Es un protocolo del tipo cliente - servidor, en el que un cliente establece una conexión con el servidor, realiza una petición y espera hasta que recibe una respuesta.
 
+\subsection{Wi-Fi}
 
-
+\subsection{MQTT}
 
 
 %\subsection{Uso de mayúscula inicial para los título de secciones}
