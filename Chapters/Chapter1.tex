@@ -182,52 +182,52 @@ Las empresas líderes en sistemas SCADA utilizan en la actualidad el concepto de
 	\item Sistema escalable y con mayor potencia de cálculo para el uso de herramientas de predicción.
 \end{itemize}
 
-
+% ------------------ SISTEMA PROPUESTO ------------------------------
  
- \subsection{Sistema propuesto}
-
-El sistema propuesto presenta una estructura similar a la visualizada en la Figura 1.7.
-
-Si bien los puntos de acceso al sistema son en su mayoría inalámbricos, el sistema se conectará a la red industrial de planta mediante ruteadores. 
-
-La red industrial de planta permite la conexión de los SCADA y dispositivos de sistemas secundarios, los sistemas y dispositivos que conviven en la red pueden encontrarse expuestos a vulnerabilidades de seguridad. Por este motivo no se implementará el acceso a internet.
-
-
-En la figura \ref{fig:SCPROY} se detalla la composición del sistema propuesto.
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=1.05\textwidth]{./Figures/RED.png}
-	\caption{Estructura de sistema propuesto.}
-	\label{fig:SCPROY}
-\end{figure}
-
-En la tabla \ref{tab:comparacion} puede observarse la comparación entre un sistema SCADA base y el planteado en este trabajo.
-
-\begin{table}[H]
-	\begin{center}
-		\caption[Comparación entre los sistemas]{Comparación entre los sistemas}
-		\label{tab:comparacion}
-		\begin{tabular}{ |m{4cm}  | m{4cm}  | m{4cm}| }\hline
-		%\rowcolor[HTML]{C0C0C0} 
-			Características & SCADA base  & Sistema propuesto \\ \hline
-			Servidor & PC con sistema operativo Windows, 8GB RAM & Raspberry Pi 4B, 4GB RAM \\ \hline
-			Licencia & SI & NO \\\hline
-			Base de datos & SQL & MySQL \\\hline
-			Nodos  & Limitados por licencia & Limitados por Base de datos \\\hline
-			Hardware & Multimarca & Propio de bajo costo \\	\hline		
-			Gestión de usuarios & SI & SI \\	\hline		
-			Registros históricos & SI & SI \\	\hline
-			Protocolo industriales CAN, ProfiNET, ProfiBUS & Licencia & Solo ModBUS \\	\hline
-			Protocolo web HTTPS, MQTT & NO & SI \\	\hline
-			Herramientas personalizables & NO & SI \\	\hline
-			Código abierto & NO & SI \\ \hline
-			Costo total de la solución & Elevado & Bajo\\ \hline
-		\end{tabular}
-		%\caption[Comparación entre los sistemas propuestos]{Comparación entre los sistema propuestos}
-		%\label{tab:comparacion}
-	\end{center}
-\end{table}
+% \subsection{Sistema propuesto}
+%
+%El sistema propuesto presenta una estructura similar a la visualizada en la Figura 1.7.
+%
+%Si bien los puntos de acceso al sistema son en su mayoría inalámbricos, el sistema se conectará a la red industrial de planta mediante ruteadores. 
+%
+%La red industrial de planta permite la conexión de los SCADA y dispositivos de sistemas secundarios, los sistemas y dispositivos que conviven en la red pueden encontrarse expuestos a vulnerabilidades de seguridad. Por este motivo no se implementará el acceso a internet.
+%
+%
+%En la figura \ref{fig:SCPROY} se detalla la composición del sistema propuesto.
+%
+%\begin{figure}[htbp]
+%	\centering
+%	\includegraphics[width=1.05\textwidth]{./Figures/RED.png}
+%	\caption{Estructura de sistema propuesto.}
+%	\label{fig:SCPROY}
+%\end{figure}
+%
+%En la tabla \ref{tab:comparacion} puede observarse la comparación entre un sistema SCADA base y el planteado en este trabajo.
+%
+%\begin{table}[H]
+%	\begin{center}
+%		\caption[Comparación entre los sistemas]{Comparación entre los sistemas}
+%		\label{tab:comparacion}
+%		\begin{tabular}{ |m{4cm}  | m{4cm}  | m{4cm}| }\hline
+%		%\rowcolor[HTML]{C0C0C0} 
+%			Características & SCADA base  & Sistema propuesto \\ \hline
+%			Servidor & PC con sistema operativo Windows, 8GB RAM & Raspberry Pi 4B, 4GB RAM \\ \hline
+%			Licencia & SI & NO \\\hline
+%			Base de datos & SQL & MySQL \\\hline
+%			Nodos  & Limitados por licencia & Limitados por Base de datos \\\hline
+%			Hardware & Multimarca & Propio de bajo costo \\	\hline		
+%			Gestión de usuarios & SI & SI \\	\hline		
+%			Registros históricos & SI & SI \\	\hline
+%			Protocolo industriales CAN, ProfiNET, ProfiBUS & Licencia & Solo ModBUS \\	\hline
+%			Protocolo web HTTPS, MQTT & NO & SI \\	\hline
+%			Herramientas personalizables & NO & SI \\	\hline
+%			Código abierto & NO & SI \\ \hline
+%			Costo total de la solución & Elevado & Bajo\\ \hline
+%		\end{tabular}
+%		%\caption[Comparación entre los sistemas propuestos]{Comparación entre los sistema propuestos}
+%		%\label{tab:comparacion}
+%	\end{center}
+%\end{table}
 
 
 %----------------------------------------------------------------------------------------

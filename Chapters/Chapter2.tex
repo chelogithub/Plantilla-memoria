@@ -5,289 +5,157 @@
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
-En el siguiente capitulo se realiza una introducción a las tecnológicas utilizadas en el desarrollo de este trabajo. Estas tecnologías se aplican a lo largo de las distintas capas del modelo de arquitectura IoT (\textit{Internet of Things})
+En el siguiente capitulo se realiza una introducción a las tecnológicas utilizadas en el desarrollo de este trabajo. Estas se aplican a las distintas capas del modelo de arquitectura de IoT (\textit{Internet of Things}).
 \section{Protocolos de comunicación}
 \label{sec:ejemplo}
 
-Los protocolos de comunicación son estándares que se utilizar para definir de que manera se vinculan uno o mas dispositivos. Existen una gran cantidad de protocolos, estos resuelven distintas problemáticas, a continuación se detallan los utilizados en el desarrollo de este trabajo.
+Los protocolos de comunicación son estándares que se utilizan para definir la manera en la que se vinculan uno o mas dispositivos. Existe una gran cantidad de protocolos diseñados para resolver distintas problemáticas, a continuación se detallan los utilizados en el desarrollo de este trabajo.
 
 \subsection{SPI \textit{Serial Peripherical Interface}}
 
-EL protocolo de comunicación SPI es un protocolo de comunicación serie que se caracteriza por ser sincrónico y \textit{full duplex}.
-Su comunicación se realiza mediante 4 hilos como se observa en la figura \ref{fig:SPI} .
+EL protocolo de comunicación SPI es un protocolo de comunicación serie, sincrónico y \textit{full duplex}. Los dispositovos sincrónicos cuentan con una señala de clock para la sincronizacioón de los datos enviados y recibidos. A su vez, las señales MOSI \textit{Master Output Slave Input} y MISO \textit{Master Input Slave Output} pemiten la transferencia simultánea de datos entre los dispositivos, esta funcionabilidad recibe el nombre de \textit{full duplex.}
+
+En la figura \ref{fig:SPI} se observa la conexión entre dispositivos SPI.
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.6\textwidth]{./Figures/SPI.png}
-	\caption{Conexión entre dispositivos SPI.\protect\footnotemark.}
+	\caption{Conexión entre dispositivos SPI maestro - esclavo.}
 	\label{fig:SPI}
 \end{figure} 
 
-Los dispositivos SPI pueden ser direccionables mediante las señales de CS \textit{chip select} y alcanzar velocidades de reloj de hasta 50MHz. 
-
-Esto permite la comunicación entre dispositivos que transfieren un gran cantidad de datos como displays, modulos ethernet y memorias entre otros. 
+Los dispositivos SPI pueden ser direccionables mediante las señales de CS \textit{chip select} y alcanzar velocidades de reloj de hasta 50MHz. Esto permite una gran capacidad de transferencia de datos, motivo por el cual son utilizados en dispositivos como, pantallas LCD, módulos ethernet y memorias entre otros. 
 
 
 \subsection{I2C \textit{Inter Integrated Circuit}}
 
-I2C es un protocolo de comunicación serie  bidireccional con un número reducido de hilos para su conexión. Como puede observarse en la figura \ref{fig:I2C}, solo se necesitan dos cables para conectar una serie de dispositivos.
+I2C es un protocolo de comunicación serie, sincrónico y bidireccional con un número reducido de hilos para su conexión. Se caracteriza por ser muy versátil y económico, el protocolo I2C se ha implementado en mas de 1000 circuitos integrados que han sido fabricados por mas de 50 compañías. Además, se utiliza en arquitecuras de control como SMBus   \textit{System Management Bus}, DDC    \textit{PMBus Power Management Bus}, IPMI   \textit{Intelligent Platform Management Interface}, DDC   \textit{Display Data Channel} and ATCA   \textit{Advanced Telecom Computing Architecture}.
+
+Cada dispositivo cuenta con una dirección única e inalterable para su direccionamiento. De acuerdo al tipo, pueden incorporar una o mas entradas CS \textit{chip select} para comunicarse con dispositivos idénticos sobre el mismo bus.
+
+En la figura \ref{fig:I2C} se observa el conexionado de dispositivos en un bus I2C.
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./Figures/I2C.png}
-	\caption{Conexión entre dispositivos I2C.\protect\footnotemark.}
+	\caption{Bus de conexión de dispositivos I2C.}
 	\label{fig:I2C}
 \end{figure} 
 
-Soporta un rango de velocidades desde los 100 kHz a los 5MHz, es direccionable y cuenta con dispositivos para aplicaciones, militares, medicinales e industriales.
-
-Entre los más utilizados se pueden encontrar, memorias, ADC, DAC, sensores de temperatura y humedad, giróscopos electrónicos, etc.
-
-\subsection{UART \textit{Universal Asincronous Receiver Transmitter}}
-
-El protocolo de comunicación serie UART es uno de los más antiguos y utilizados en la comunicación entre dispositivos. Este protocolo es asincrónico, por lo que no cuenta una señal de clock, esta característica reduce la cantidad de hilos de conexión como se detalla en la Figura \ref{fig:UART}
-
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.6\textwidth]{./Figures/UART.png}
-	\caption{Conexión entre dispositivos UART.\protect\footnotemark.}
-	\label{fig:UART}
-\end{figure} 
-
-A diferencias de los protocolos I2C y  SPI, este no soporta direccionamiento, y su velocidad de comunicación es muy inferior en comparación a los anteriores. Dedido a su sencillez y bajo costo el mismo se continúa utilizando en algunos dispositivos como, módulos WiFi, módulos LoRa, interfaz de comunicación a PC e impresoras.
-
-\subsection{LoRa \textit{Long Range}}
-
-LoRa es una tecnología de comunicación inalámbrica que utiliza la modulación CSS(\textit{Chip Spread Spectrum}) desarrollada por la empresa Semtech. 
-La utilización de este tipo de modulación posee grandes ventajas de alcance, inmunidad al ruido y consumo.
-En la figura \ref{fig:LoRa} se observa la forma de onda modulada de un dispositivo LoRa. 
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.3\textwidth]{./Figures/LoRa.png}
-	\caption{Modulación CSS.\protect\footnotemark.}
-	\label{fig:LoRa}
-\end{figure} 
-
-Los dispositivos LoRa utilizan el espectro de frecuencias no licenciado ISM ( \textit{Industrial, Scientific and Medical}) de 915 MHz para el caso de nuestro país, esto reduce el costo operativo de la instalación de dispositivos con esta tecnología.
-
-Con la incorporación del \textit{stack} LoRaWAN, esta tecnología se ha convertido en una de las mas populares en el ecosistema IoT.
-
-
-\subsection{ModBUS TCP}
-
-Modbus es un protocolo de aplicación abierto Maestro/Esclavo que se puede utilizar en distintas capas físicas. 
-Modbus TCP significa que el protocolo Modbus se utiliza en la parte superior de Ethernet TCP/IP, un protocolo orientado a la conexión con el que se busca asegurar la entrega de datos.
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.7\textwidth]{./Figures/ModBUS.png}
-	\caption{Arquitectura de comunicación ModBUS TCP.\protect\footnotemark.}
-	\label{fig:ModBUS}
-\end{figure} 
-
-Este protocolo ha sido adoptado en la industria por una gran cantidad de fabricantes y en dispositivos controladores lógicos programables, interfase hombre máquina, sensores, actuadores, variadores de velocidad, etc.
-
-ModBUS es un protocolo sencillo, económico y de rápida implementación. Dada su integración existente en los distintos componentes industriales, es muy utilizado cuando se requiere obtener datos de dispositivos industriales. 
-
-\subsection{HTTP \textit{Hypertext Transfer Protocol}}
-
-HTTP es un protocolo de la capa de aplicación para la transmisión de documentos hipermedia, como HTML \textit{HyperText Markup Language} del tipo cliente - servidor. 
-Es un protocolo del tipo cliente - servidor, en el que un cliente establece una conexión con el servidor, realiza una petición y espera hasta que recibe una respuesta.
-
-\subsection{Wi-Fi}
-
-\subsection{MQTT}
-
-
-%\subsection{Uso de mayúscula inicial para los título de secciones}
-
-Si en el texto se hace alusión a diferentes partes del trabajo referirse a ellas como capítulo, sección o subsección según corresponda. Por ejemplo: ``En el capítulo \ref{Chapter1} se explica tal cosa'', o ``En la sección \ref{sec:ejemplo} se presenta lo que sea'', o ``En la subsección \ref{subsec:ejemplo} se discute otra cosa''.
-
-Cuando se quiere poner una lista tabulada, se hace así:
-
-\begin{itemize}
-	\item Este es el primer elemento de la lista.
-	\item Este es el segundo elemento de la lista.
-\end{itemize}
-
-Notar el uso de las mayúsculas y el punto al final de cada elemento.
-
-Si se desea poner una lista numerada el formato es este:
-
-\begin{enumerate}
-	\item Este es el primer elemento de la lista.
-	\item Este es el segundo elemento de la lista.
-\end{enumerate}
-
-Notar el uso de las mayúsculas y el punto al final de cada elemento.
-
-\section{Tecnologías de backend}
-\label{subsec:ejemplo}
-
-Se recomienda no utilizar \textbf{texto en negritas} en ningún párrafo, ni tampoco texto \underline{subrayado}. En cambio sí se debe utilizar \textit{texto en itálicas} para palabras en un idioma extranjero, al menos la primera vez que aparecen en el texto. En el caso de palabras que estamos inventando se deben utilizar ``comillas'', así como también para citas textuales. Por ejemplo, un \textit{digital filter} es una especie de ``selector'' que permite separar ciertos componentes armónicos en particular.
-
-La escritura debe ser impersonal. Por ejemplo, no utilizar ``el diseño del firmware lo hice de acuerdo con tal principio'', sino ``el firmware fue diseñado utilizando tal principio''. 
-
-El trabajo es algo que al momento de escribir la memoria se supone que ya está concluido, entonces todo lo que se refiera a hacer el trabajo se narra en tiempo pasado, porque es algo que ya ocurrió. Por ejemplo, "se diseñó el firmware empleando la técnica de test driven development".
-
-En cambio, la memoria es algo que está vivo cada vez que el lector la lee. Por eso transcurre siempre en tiempo presente, como por ejemplo:
-
-``En el presente capítulo se da una visión global sobre las distintas pruebas realizadas y los resultados obtenidos. Se explica el modo en que fueron llevados a cabo los test unitarios y las pruebas del sistema''.
-
-Se recomienda no utilizar una sección de glosario sino colocar la descripción de las abreviaturas como parte del mismo cuerpo del texto. Por ejemplo, RTOS (\textit{Real Time Operating System}, Sistema Operativo de Tiempo Real) o en caso de considerarlo apropiado mediante notas a pie de página.
-
-Si se desea indicar alguna página web utilizar el siguiente formato de referencias bibliográficas, dónde las referencias se detallan en la sección de bibliografía de la memoria, utilizado el formato establecido por IEEE en \citep{IEEE:citation}. Por ejemplo, ``el presente trabajo se basa en la plataforma EDU-CIAA-NXP \citep{CIAA}, la cual...''.
-
-\section{Tecnologías de frontend} 
-
-Al insertar figuras en la memoria se deben considerar determinadas pautas. Para empezar, usar siempre tipografía claramente legible. Luego, tener claro que \textbf{es incorrecto} escribir por ejemplo esto: ``El diseño elegido es un cuadrado, como se ve en la siguiente figura:''
-
-\begin{figure}[h]
-\centering
-\includegraphics[scale=.45]{./Figures/cuadradoAzul.png}
-\end{figure}
-
-La forma correcta de utilizar una figura es con referencias cruzadas, por ejemplo: ``Se eligió utilizar un cuadrado azul para el logo, como puede observarse en la figura \ref{fig:cuadradoAzul}''.
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[scale=.45]{./Figures/cuadradoAzul.png}
-	\caption{Ilustración del cuadrado azul que se eligió para el diseño del logo.}
-	\label{fig:cuadradoAzul}
-\end{figure}
-
-El texto de las figuras debe estar siempre en español, excepto que se decida reproducir una figura original tomada de alguna referencia. En ese caso la referencia de la cual se tomó la figura debe ser indicada en el epígrafe de la figura e incluida como una nota al pie, como se ilustra en la figura \ref{fig:palabraIngles}.
-
-\begin{figure}[htpb]
-	\centering
-	\includegraphics[scale=.3]{./Figures/word.jpeg}
-	\caption{Imagen tomada de la página oficial del procesador\protect\footnotemark.}
-	\label{fig:palabraIngles}
-\end{figure}
-
-\footnotetext{Imagen tomada de \url{https://goo.gl/images/i7C70w}}
-
-La figura y el epígrafe deben conformar una unidad cuyo significado principal pueda ser comprendido por el lector sin necesidad de leer el cuerpo central de la memoria. Para eso es necesario que el epígrafe sea todo lo detallado que corresponda y si en la figura se utilizan abreviaturas entonces aclarar su significado en el epígrafe o en la misma figura.
-
-
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[scale=.37]{./Figures/questionMark.png}
-	\caption{¿Por qué de pronto aparece esta figura?}
-	\label{fig:questionMark}
-\end{figure}
-
-Nunca colocar una figura en el documento antes de hacer la primera referencia a ella, como se ilustra con la figura \ref{fig:questionMark}, porque sino el lector no comprenderá por qué de pronto aparece la figura en el documento, lo que distraerá su atención.
-
-Otra posibilidad es utilizar el entorno \textit{subfigure} para incluir más de una figura, como se puede ver en la figura \ref{fig:three graphs}. Notar que se pueden referenciar también las figuras internas individualmente de esta manera: \ref{fig:1de3}, \ref{fig:2de3} y \ref{fig:3de3}.
- 
-\begin{figure}[!htpb]
-     \centering
-     \begin{subfigure}[b]{0.3\textwidth}
-         \centering
-         \includegraphics[width=.65\textwidth]{./Figures/questionMark}
-         \caption{Un caption.}
-         \label{fig:1de3}
-     \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.3\textwidth}
-         \centering
-         \includegraphics[width=.65\textwidth]{./Figures/questionMark}
-         \caption{Otro.}
-         \label{fig:2de3}
-     \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.3\textwidth}
-         \centering
-         \includegraphics[width=.65\textwidth]{./Figures/questionMark}
-         \caption{Y otro más.}
-         \label{fig:3de3}
-     \end{subfigure}
-        \caption{Tres gráficos simples}
-        \label{fig:three graphs}
-\end{figure}
-
-El código para generar las imágenes se encuentra disponible para su reutilización en el archivo \file{Chapter2.tex}.
-
-\section{Dispositivos Bare Metal}
-
-Para las tablas utilizar el mismo formato que para las figuras, sólo que el epígrafe se debe colocar arriba de la tabla, como se ilustra en la tabla \ref{tab:peces}. Observar que sólo algunas filas van con líneas visibles y notar el uso de las negritas para los encabezados.  La referencia se logra utilizando el comando \verb|\ref{<label>}| donde label debe estar definida dentro del entorno de la tabla.
-
-\begin{verbatim}
-\begin{table}[h]
-	\centering
-	\caption[caption corto]{caption largo más descriptivo}
-	\begin{tabular}{l c c}    
-		\toprule
-		\textbf{Especie}     & \textbf{Tamaño} & \textbf{Valor}\\
-		\midrule
-		Amphiprion Ocellaris & 10 cm           & \$ 6.000 \\		
-		Hepatus Blue Tang    & 15 cm           & \$ 7.000 \\
-		Zebrasoma Xanthurus  & 12 cm           & \$ 6.800 \\
-		\bottomrule
-		\hline
-	\end{tabular}
-	\label{tab:peces}
-\end{table}
-\end{verbatim}
-
-
-\begin{table}[h]
-	\centering
-	\caption[caption corto]{caption largo más descriptivo}
-	\begin{tabular}{l c c}    
-		\toprule
-		\textbf{Especie} 	 & \textbf{Tamaño} 		& \textbf{Valor}  \\
-		\midrule
-		Amphiprion Ocellaris & 10 cm 				& \$ 6.000 \\		
-		Hepatus Blue Tang	 & 15 cm				& \$ 7.000 \\
-		Zebrasoma Xanthurus	 & 12 cm				& \$ 6.800 \\
-		\bottomrule
-		\hline
-	\end{tabular}
-	\label{tab:peces}
-\end{table}
-
-En cada capítulo se debe reiniciar el número de conteo de las figuras y las tablas, por ejemplo, figura 2.1 o tabla 2.1, pero no se debe reiniciar el conteo en cada sección. Por suerte la plantilla se encarga de esto por nosotros.
-
-\section{Herramientas utilizadas}
-\label{sec:Ecuaciones}
-
-Al insertar ecuaciones en la memoria dentro de un entorno \textit{equation}, éstas se numeran en forma automática  y se pueden referir al igual que como se hace con las figuras y tablas, por ejemplo ver la ecuación \ref{eq:metric}.
-
-\begin{equation}
-	\label{eq:metric}
-	ds^2 = c^2 dt^2 \left( \frac{d\sigma^2}{1-k\sigma^2} + \sigma^2\left[ d\theta^2 + \sin^2\theta d\phi^2 \right] \right)
-\end{equation}
-                                                        
-Es importante tener presente que si bien las ecuaciones pueden ser referidas por su número, también es correcto utilizar los dos puntos, como por ejemplo ``la expresión matemática que describe este comportamiento es la siguiente:''
-
-\begin{equation}
-	\label{eq:schrodinger}
-	\frac{\hbar^2}{2m}\nabla^2\Psi + V(\mathbf{r})\Psi = -i\hbar \frac{\partial\Psi}{\partial t}
-\end{equation}
-
-Para generar la ecuación \ref{eq:metric} se utilizó el siguiente código:
-
-\begin{verbatim}
-\begin{equation}
-	\label{eq:metric}
-	ds^2 = c^2 dt^2 \left( \frac{d\sigma^2}{1-k\sigma^2} + 
-	\sigma^2\left[ d\theta^2 + 
-	\sin^2\theta d\phi^2 \right] \right)
-\end{equation}
-\end{verbatim}
-
-Y para la ecuación \ref{eq:schrodinger}:
-
-\begin{verbatim}
-\begin{equation}
-	\label{eq:schrodinger}
-	\frac{\hbar^2}{2m}\nabla^2\Psi + V(\mathbf{r})\Psi = 
-	-i\hbar \frac{\partial\Psi}{\partial t}
-\end{equation}
-
-\end{verbatim}
+Las velocidades de comunicación varían desde los 100 kHz a los 5MHz, en la actualidad cuentan con dispositivos para aplicaciones, militares, medicinales e industriales. Entre los más utilizados se pueden encontrar, memorias, conversores ADC, DAC, sensores de temperatura y humedad, RTC \textit{Real Time Clock}, giróscopos y otros.
+
+%\subsection{UART \textit{Universal Asincronous Receiver Transmitter}}
+%
+%El protocolo de comunicación UART es uno de los más antiguos y utilizados para comunicaciones serie. Se caracteria por ser asincrónico y no direccionable limitando su aplicación a enlaces punto a punto.
+%
+%
+%Este protocolo es asincrónico, por lo que no cuenta una señal de clock, esta característica reduce la cantidad de hilos de conexión como se detalla en la Figura \ref{fig:UART}
+%
+%
+%\begin{figure}[htbp]
+%	\centering
+%	\includegraphics[width=0.6\textwidth]{./Figures/UART.png}
+%	\caption{Conexión entre dispositivos UART.\protect\footnotemark.}
+%	\label{fig:UART}
+%\end{figure} 
+%
+%A diferencias de los protocolos I2C y  SPI, su velocidad de comunicación es muy inferior. Dedido a su sencillez y bajo costo, se continúa utilizando en algunos dispositivos como, módulos WiFi, módulos LoRa, interfaz de comunicación a PC e impresoras.
+%
+%\subsection{LoRa \textit{Long Range}}
+%
+%LoRa es una tecnología de comunicación inalámbrica que utiliza la modulación CSS(\textit{Chip Spread Spectrum}) desarrollada por la empresa Semtech. 
+%La utilización de este tipo de modulación posee grandes ventajas de alcance, inmunidad al ruido y consumo.
+%En la figura \ref{fig:LoRa} se observa la forma de onda modulada de un dispositivo LoRa. 
+%
+%\begin{figure}[htbp]
+%	\centering
+%	\includegraphics[width=0.3\textwidth]{./Figures/LoRa.png}
+%	\caption{Modulación CSS.\protect\footnotemark.}
+%	\label{fig:LoRa}
+%\end{figure} 
+%
+%Los dispositivos LoRa utilizan el espectro de frecuencias no licenciado ISM ( \textit{Industrial, Scientific and Medical}) de 915 MHz para el caso de nuestro país, esto reduce el costo operativo de la instalación de dispositivos con esta tecnología.
+%
+%Con la incorporación del \textit{stack} LoRaWAN, esta tecnología se ha convertido en una de las mas populares del ecosistema IoT.
+%
+%
+%\subsection{ModBUS TCP}
+%
+%Modbus es un protocolo de aplicación abierto Maestro/Esclavo que se puede utilizar en distintas capas físicas. 
+%Modbus TCP significa que el protocolo Modbus se utiliza en la parte superior de Ethernet TCP/IP, un protocolo orientado a la conexión con el que se busca asegurar la entrega de datos. En la figura \ref{fig:ModBUS} puede observarse una arquitectura típica ModBUS.
+%
+%\begin{figure}[htbp]
+%	\centering
+%	\includegraphics[width=0.7\textwidth]{./Figures/ModBUS.png}
+%	\caption{Arquitectura de comunicación ModBUS TCP.\protect\footnotemark.}
+%	\label{fig:ModBUS}
+%\end{figure} 
+%
+%Este protocolo ha sido adoptado en la industria por una gran cantidad de fabricantes y en dispositivos controladores lógicos programables, interfase hombre máquina, sensores, actuadores, variadores de velocidad, etc.
+%
+%ModBUS es un protocolo sencillo, económico y de rápida implementación. Dada su integración existente en los distintos componentes industriales, es muy utilizado cuando se requiere obtener datos de dispositivos industriales. 
+%
+%\subsection{HTTP \textit{Hypertext Transfer Protocol}}
+%
+%HTTP es un protocolo de la capa de aplicación para la transmisión de documentos hipermedia, como HTML \textit{HyperText Markup Language}. 
+%
+%Es un protocolo del tipo cliente - servidor, en el que un cliente establece una conexión con el servidor, realiza una petición y espera hasta que recibe una respuesta. 
+%
+%Las peticiones se realizan mediante métodos, entre los más utilizados se pueden encontrar, el método PUT, GET, UPDATE Y DELETE. 
+%
+%En la figura \ref{fig:HTTP} se detalla la acción de cada uno de los métodos mencionados.
+%
+%\begin{figure}[htbp]
+%	\centering
+%	\includegraphics[width=0.6\textwidth]{./Figures/HTTP.png}
+%	\caption{Métodos HTTP de uso frecuente.\protect\footnotemark.}
+%	\label{fig:HTTP}
+%\end{figure} 
+%
+%%https://miro.medium.com/v2/resize:fit:1400/1*wpbYhweLr38h8fUnuFT0Fg.png
+%%https://developer.mozilla.org/es/docs/Web/HTTP
+%
+%El manejo de datos se encuentra prácticamente cubierto con la utilización de estos cuatro métodos.
+%
+%En materia de seguridad, el protocolo http puede encriptarse sobre TLS \textit{Transport Layer Security} o bien sobre SSL \textit{Secure Sockets Layer}.
+%
+%\subsection{Wi-Fi}
+%
+%La tecnología de red Wi-Fi \textit{Wireless Fidelity} es un protocolo de red inalámbrico basado en las normas IEEE 802.11. 
+%
+%Las normas IEEE 802.11 especifican los protocolos de capa física y control de acceso al medio para la implementación de una red de área local que permita la comunicación entre dispositivos. 
+%
+%La evolución de la tecnología Wi-Fi viene dada por la actualización permanente de las normas IEEE 802.11 en repuesta a las necesidades de conectividad que se demandan.
+%
+%En la figura \ref{fig:WIFIEVO} se observa la evolución de la tecnología Wi-Fi.
+%
+%%https://softwarelab.org/es/blog/que-es-wi-fi/
+%%https://en.wikipedia.org/wiki/IEEE_802.11
+%%https://techunwrapped.com/know-the-characteristics-and-speed-of-the-new-wifi-7-or-802-11be/
+%
+%\begin{figure}[htbp]
+%	\centering
+%	\includegraphics[width=0.7\textwidth]{./Figures/WIFIEVO.png}
+%	\caption{Evolución de la tecnología Wi-Fi.\protect\footnotemark.}
+%	\label{fig:WIFIEVO}
+%\end{figure} 
+%
+%En la actualidad, la tecnología Wi-Fi se encuentra disponible en un gran número de dispositivos hogareños, industriales y \textit{weareables}.
+%
+%\subsection{MQTT}
+%
+%
+%
+%\section{Tecnologías de backend}
+%
+%
+%
+%\section{Tecnologías de frontend} 
+%
+%
+%
+%\section{Dispositivos Bare Metal}
+%
+%
+%
+%\section{Herramientas utilizadas}
